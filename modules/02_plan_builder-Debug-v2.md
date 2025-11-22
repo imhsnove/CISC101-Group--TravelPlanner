@@ -2,24 +2,24 @@ for day in trip_days:
   prior themes = []
 
   morning = pick activity(
-    candidates.filter(open_in(morning_window))
+    candidates.filter(open_in(morning window))
               .filter(proximity(lodging, ≤20min))
-              .filter(fits_slot(morning_window))
+              .filter(fits slot(morning window))
   )
   prior themes.append(morning.theme)
 
   midday = pick activity(
-    candidates.filter(open_in(midday_window))
+    candidates.filter(open in(midday window))
               .filter(proximity(morning, ≤20min))
-              .filter(fits_slot(midday_window))
+              .filter(fits slot(midday window))
   )
   prior_themes.append(midday.theme)
 
   afternoon = pick activity(
-    candidates.filter(open_in(afternoon_window))
+    candidates.filter(open in(afternoon_window))
               .filter(proximity(midday, ≤35min))
-              .filter(theme_different(prior_themes))
-              .filter(fits_slot(afternoon_window))
+              .filter(theme different(prior themes))
+              .filter(fits slot(afternoon window))
   )
   prior themes.append(afternoon.theme)
 
